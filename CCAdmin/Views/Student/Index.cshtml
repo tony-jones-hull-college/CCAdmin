@@ -1,0 +1,39 @@
+﻿@model CCAdmin.ViewModels.StudentView
+<div style="margin-top:15px">
+    <br />
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <p>@Html.ValidationSummary(false)</p>
+    </div>
+    <div class="col-md-offset-10 col-md-2">
+        @if (Model.Success){<p>Success</p>}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <label>Ref</label>
+    </div>
+    <div class="col-md-10">
+        <label>@Model.RefNo</label>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <label>Name</label>
+    </div>
+    <div class="col-md-10">
+        <label>@Model.Name</label>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        @if (Model.ShowCCButton)
+        {<a class="btn btn-default" asp-controller="Student" asp-action="SendCC" asp-route-studentDetailId="@Model.StudentDetailId">Send CC Disclosure form to student/applicant</a>}
+        @if (Model.ShowHarrogateLetterButton)
+        {<a class="btn btn-default" asp-controller="Student" asp-action="SendOfferLetter" asp-route-studentDetailId="@Model.StudentDetailId">Send Harrogate Offer letter to Applicant</a>}
+        @if (Model.ShowGeneralLetterButton)
+        {<a class="btn btn-default" asp-controller="Student" asp-action="SendOtherOfferLetter" asp-route-studentDetailId="@Model.StudentDetailId">Send General Offer letter to Applicant</a>}
+    </div>
+</div>
